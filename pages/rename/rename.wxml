@@ -1,0 +1,105 @@
+<view class="cu-load load-modal" wx:if="{{loading}}">
+    <image class="png" mode="aspectFit" src="../../images/wzmp/icon_cwj.png"></image>
+    <view class="gray-text">加载中...</view>
+</view>
+<scroll-view scrollX class="bg-white nav">
+    <view class="flex text-center">
+        <view bindtap="tabSelect" class="cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" data-id="{{index}}" wx:for="{{nameType}}" wx:key="index">
+            {{nameType[index]}}
+        </view>
+    </view>
+</scroll-view>
+<!-- <view class="banner">
+    <image bindtap="eleme" data-event-opts="{{[ [ 'tap',[ [ 'toOther',['$event'] ] ] ] ]}}" mode="aspectFit" src="https://www.zbhzyyj.xyz/attachment/9/image/asdfasdasda.jpg" role="img" style="margin: 16rpx; /* border-radius: 30px; */width: 96%;height: 315rpx;flex: 1;box-shadow: 10rpx 8rpx 20rpx fta(0,0,0,.3);"></image>
+</view> -->
+<view class="example">
+    <view class="item">
+        <image mode="widthFix" src="{{examplePic[TabCur].pic_1}}"></image>
+    </view>
+    <view class="item">
+        <image mode="widthFix" src="{{examplePic[TabCur].pic_2}}" style="position: relative; left: 2rpx; top: 0rpx"></image>
+    </view>
+</view>
+<view class="exampleText">
+    <text style="font-weight: bold;">{{nameType[TabCur]}}示例 ▲</text>
+</view>
+<view class="buju" wx:if="{{TabCur==0}}">
+    <button bindtap="konbaibut" class="button" type="primary" wx:if="{{number!=0&&!vipUser}}">随机生成并复制空白名({{number}}次数)</button>
+    <button bindtap="payment" class="button" type="primary" wx:if="{{number==0&&!vipUser}}">支付3.99元24小时无限次数生成</button>
+    <button bindtap="vipKonbaibut" class="button" type="primary" wx:if="{{vipUser}}">VIP无限生成</button>
+    <navigator target="miniProgram" open-type="navigate" app-id="wx32774ecd8f75b804" path="" extra-data="" version="release" class='button'>换个地方再生成5次</navigator>
+    <view class="flex flex-direction" wx:if="{{TabCur==0||TabCur==1}}">
+    <!-- <button bindtap="getNumber" class="margin-left margin-right cu-btn bg-red lg">
+        <image mode="widthFix" src="../../images/video.png" style="width:50rpx;height:50rpx;margin-right:10rpx;"></image>
+        看视频获取次数，每次+3
+    </button> -->
+</view>
+</view>
+
+ 
+
+
+<view class="buju" wx:if="{{TabCur==1}}">
+    <input bindinput="chongfuInput" class="content1 input1" placeholder="请输入重复的昵称(1-5个字符)" placeholderStyle="color:#A9A9A9;" value="{{shuruNu}}"></input>
+    <button bindtap="chongfubut" class="button" type="primary" wx:if="{{number!=0&&!vipUser}}">生成并复制重复名({{number}}次数)</button>
+    <button bindtap="payment" class="button" type="primary" wx:if="{{number==0&&!vipUser}}">支付3.99元无限次数生成</button>
+    <button bindtap="vipChongfubut" class="button" type="primary" wx:if="{{vipUser}}">VIP无限生成</button>
+    <navigator target="miniProgram" open-type="navigate" app-id="wx32774ecd8f75b804" path="" extra-data="" version="release" class='button'>换个地方再生成5次</navigator>
+<!-- <view class="flex flex-direction" wx:if="{{TabCur==0||TabCur==1}}">
+    <button bindtap="getNumber" class="margin-left margin-right cu-btn bg-red lg">
+        <image mode="widthFix" src="../../images/video.png" style="width:50rpx;height:50rpx;margin-right:10rpx;"></image>
+        看视频获取次数，每次+3
+    </button>
+</view> -->
+</view>
+<view class="buju" wx:if="{{TabCur==2}}">
+    <input bindlongpress="longFhRandom" class="content1 input1" disabled="true" placeholder="长按复制，中文自行修改" placeholderStyle="color:#A9A9A9;" value="{{upFhRandom}}"></input>
+    <button bindtap="bindFhRandom" class="button" type="primary">随机生成符号名</button>
+</view>
+<view class="hotFuhao" wx:if="{{TabCur==2}}">
+    <view style="font-size: 36rpx;margin-bottom:20rpx;">
+        <text class="cuIcon-hotfill text-red" style="margin-right:10rpx;"></text>
+        <text>热门符号和昵称(长按复制)</text>
+    </view>
+    <view class="pailie">
+        <view bindlongpress="longHotText" class="gezi" data-text="{{item}}" wx:for="{{arrayFuhao}}" wx:key="key">
+            {{item}}
+        </view>
+    </view>
+</view>
+<!-- <view class="flex flex-direction" wx:if="{{TabCur==0||TabCur==1}}">
+    <button bindtap="getNumber" class="margin-left margin-right cu-btn bg-red lg">
+        <image mode="widthFix" src="../../images/video.png" style="width:50rpx;height:50rpx;margin-right:10rpx;"></image>
+        获取次数，每次+8
+    </button>
+</view> -->
+<view class="padding" style="padding-bottom:110rpx;" wx:if="{{TabCur==0||TabCur==1}}">
+<!-- banner广告 -->
+<!-- banner上面加一个小程序广告图片 -->
+<!-- <navigator target="miniProgram" open-type="navigate" app-id="wx4259a94723f3e844" path="" extra-data="" version="release" class='button'><image src="cloud://yxmz-4g0ozsqpdae513f6.7978-yxmz-4g0ozsqpdae513f6-1309151887/92折话费.jpg" style="width:fixed;height:180rpx;"></image></navigator> -->
+    <ad unit-id="adunit-97bb68a4deed9af2"></ad>
+    <view class="bg-white">
+        <view class="padding-sm solid-bottom cuIcon-taxi">
+            <text> 常见问题</text>
+        </view>
+        <view class="padding-xs margin-left text-gray" >1、提示“内容已复制”即代表生成成功，可前往游戏内粘贴</view>
+        <view class="padding-xs margin-left text-gray" >2、进入游戏粘贴‘提示重复’，说明被前人使用了，<text class="text-red">请重新生成</text></view>
+        <view class="padding-xs margin-left text-gray" >3、空白名、重复名每次随机生成，都是不一样的</view>
+        <view class="padding-xs margin-left text-gray" >4、安卓苹果均完美显示</view>
+        <view class="padding-xs margin-left text-gray" >5、空白名数量是有限的，且改且珍惜</view>
+        <view class="padding-xs margin-left text-gray" >6、太火的重复名可能改不了，如“梦之泪伤”。如果你有耐心，<text class="text-red">不断去尝试生成</text>，可以捡漏！</view>
+    </view>
+</view>
+<button class="share" openType="share" style="position:fixed;right:20rpx;bottom:20rpx;width:80rpx;height:80rpx;padding:0;border-radius:0;background-color:rgba(0, 0, 0, 0);">
+   <!-- <image mode="aspectFit" src="https://www.zbhzyyj.xyz/attachment/9/image/share3.png" style="width:80rpx;height:80rpx;"></image> -->
+</button>
+<button class="kf_button" openType="contact" sessionFrom="weapp">
+   <!--  <image class="kf_image" src="https://www.zbhzyyj.xyz/attachment/9/image/111.png" role="img" style="position: fixed;right: 11px;bottom: 250px;width: 44px;height: 44px;padding: 0;border-radius: 0;background-color: rgba(0, 0, 0, 0);"></image> -->
+</button>
+<navigator appId="wx53b5fe2cc08621a3" openType="navigate" path="bh_rising/pages/index/index?parent_id=1318" target="miniProgram">
+    <view>
+        <button class="ge_button">
+            <!--<image class="ge_image" src="https://www.zbhzyyj.xyz/attachment/9/image/k111f.png" role="img" style="position: fixed;right: 11px;bottom: 199px;width: 44px;height: 44px;padding: 0;border-radius: 0;background-color: rgba(0, 0, 0, 0);"></image> -->
+        </button>
+    </view>
+</navigator>

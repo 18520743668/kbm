@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "tip": "/components/tip/tip"
+    },
+    "navigationBarTitleText": "安卓微信区战力查询"
+}

@@ -1,0 +1,61 @@
+<view class="container">
+    <swiper autoplay class="swiper" indicatorDots="{{indicatorDots}}">
+        <swiper-item>
+            <image alt="" src="http://gaiming.app.lanou.cc/ad/1.jpg"></image>
+        </swiper-item>
+        <swiper-item>
+            <image alt="" src="http://gaiming.app.lanou.cc/ad/2.jpg"></image>
+        </swiper-item>
+    </swiper>
+    <view class="search-top">
+        <view class="search-left">
+            <image class="search-icon" src="/img/search.png"></image>
+            <input bindconfirm="searchConfig" bindinput="handleSearchChange" confirmType="search" maxlength="10" placeholder="英雄名" value="{{search}}"></input>
+        </view>
+        <view bindtap="resetSearch" class="search-right">
+            <image class="reset-icon" src="/img/reset.png"></image>
+        </view>
+    </view>
+    <view class="tab-center">
+        <view bindtap="tabBar" class="{{heroType==''?'active':''}}" data-heroType="">全部</view>
+        <view bindtap="tabBar" class="{{heroType=='1'?'active':''}}" data-heroType="1">刺客</view>
+        <view bindtap="tabBar" class="{{heroType=='2'?'active':''}}" data-heroType="2">法师</view>
+        <view bindtap="tabBar" class="{{heroType=='3'?'active':''}}" data-heroType="3">射手</view>
+        <view bindtap="tabBar" class="{{heroType=='4'?'active':''}}" data-heroType="4">坦克</view>
+        <view bindtap="tabBar" class="{{heroType=='5'?'active':''}}" data-heroType="5">战士</view>
+        <view bindtap="tabBar" class="{{heroType=='6'?'active':''}}" data-heroType="6">辅助</view>
+    </view>
+    <view class="heroList">
+        <view class="list-item" wx:for="{{heroList}}" wx:for-item="hero" wx:key="key">
+            <image bindtap="heroPower" data-cname="{{hero.name}}" data-heroId="{{hero.heroid}}" data-heroType="{{hero.job}}" data-iconUrl="https://game.gtimg.cn/images/yxzj/img201606/heroimg/{{hero.heroid}}/{{hero.heroid}}.jpg" data-title="{{hero.title}}" lazyLoad="true" src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/{{hero.heroid}}/{{hero.heroid}}.jpg"></image>
+            <view class="list-text">{{hero.cname}}</view>
+        </view>
+    </view>
+    <view class="common-mask" wx:if="{{heroPowerModal}}">
+        <view class="pop-content">
+            <view class="pop-top">
+                <view class="hero-intro">
+                    <text class="title">{{heroPower.title}}</text>
+                    <text class="name">{{heroPower.cname}}</text>
+                    <text class="type" wx:if="{{heroPower.heroType===1}}">战士</text>
+                    <text class="type" wx:if="{{heroPower.heroType===2}}">法师</text>
+                    <text class="type" wx:if="{{heroPower.heroType===3}}">坦克</text>
+                    <text class="type" wx:if="{{heroPower.heroType===4}}">刺客</text>
+                    <text class="type" wx:if="{{heroPower.heroType===5}}">射手</text>
+                    <text class="type" wx:if="{{heroPower.heroType===6}}">辅助</text>
+                </view>
+                <view class="hero-img">
+                    <image src="{{heroPower.iconUrl}}"></image>
+                </view>
+            </view>
+            <view class="hero-power">
+                <text>最低县标：{{heroPower.area}}（{{heroPower.areaPower}}）</text>
+                <text>最低市标：{{heroPower.city}}（{{heroPower.cityPower}}）</text>
+                <text>最低省标：{{heroPower.prov}}（{{heroPower.provPower}}）</text>
+                <text>更新时间：{{heroPower.updateDate}}</text>
+            </view>
+            <view bindtap="heroPowerModalHide" class="power-btn">确认</view>
+        </view>
+    </view>
+    <tip></tip>
+</view>

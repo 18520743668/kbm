@@ -1,0 +1,79 @@
+.example {
+    display: flex;
+}
+
+.example .item {
+    margin: 16rpx;
+    /* border: 2px solid #cecece; */
+    border-radius: 30px;
+    /* border-radius: 50%; */
+    width: 315rpx;
+/*    height: 315rpx;*/
+    flex: 1;
+    /* overflow: hidden; */
+    box-shadow: 10rpx 8rpx 20rpx fta(0,0,0,.3);
+}
+
+.exampleText {
+    margin: 0 auto;
+    color: #666;
+}
+
+.buju {
+    margin-top: 30rpx;
+}
+
+.buju .button {
+    margin: 30rpx;
+    font-size: 35rpx;
+}
+
+.buju .button,.input1 {
+    height: 90rpx;
+    border: 2px solid #cecece;
+    border-radius: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    line-height: 90rpx;
+    background-color: #2196F3;
+}
+
+.input1 {
+      /* border-radius: 10%; */
+      margin: 20rpx 40rpx;
+      background-color: #fff;
+      font-size: 32rpx;
+      text-align: center;
+}
+
+.hotFuhao {
+    border-radius: 20rpx;
+    margin: 20rpx 20rpx 110rpx;
+    padding: 30rpx 20rpx;
+    color: #fff;
+    background-color: #352b50;
+}
+
+.hotFuhao .pailie {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.eleme{
+    height: 20%;
+}
+.hotFuhao .pailie .gezi {
+    text-align: center;
+    overflow: hidden;
+    background-color: #374768;
+    margin: 10rpx 10rpx 10rpx 0rpx;
+    padding: 10rpx 30rpx;
+    border-radius: 5px;
+    font-size: 28rpx;
+}
