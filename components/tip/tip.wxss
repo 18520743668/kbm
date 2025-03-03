@@ -1,0 +1,19 @@
+.tip {
+    color: #5d9ee9;
+    padding: 13rpx 0;
+    width: 100%;
+    bottom: 96rpx;
+    position: fixed;
+    background-color: #f0f7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    bottom: 0;
+}
+
+.tip image {
+    width: 24rpx;
+    height: 24rpx;
+    margin-right: 8rpx;
+}
